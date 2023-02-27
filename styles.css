@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 20px 1fr 20px;
+  grid-template-rows: auto;
+  grid-template-areas:
+    '.       title   .'
+    '.       header  .'
+    'divider divider divider'
+    '.       skills  .'
+    '.       main    .'
+    '.       footer  .';
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@media only screen and (min-width: 600px) {
+  body {
+    grid-template-columns: 20px 300px 1fr 20px;
+    grid-template-areas:
+      '.       title   header  .'
+      'divider divider divider divider'
+      '.       skills  main    .'
+      'footer footer footer footer';
+  }
+}
+
+.title {
+  grid-area: title;
+  background-color: rgb(190, 52, 85);
+  font-size: 28px;
+  color: whitesmoke;
+  height: 20px;
+  padding: 100px;
+  text-align: left;
+  padding-left: 20px;
+
+}
+
+.header {
+  grid-area: header;
+  background-color: whitesmoke;
+  color:  rgb(190, 52, 85);
+  text-align: right;
+  padding-top: 100px;
+  padding: 10px;
+}
+
+
+.divider {
+  grid-area: divider;
+  background-color: rgb(46,46,46);
+  color: whitesmoke;
+  padding: 10px;
+  padding-right: 50px;
+  text-align: right;
+}
+
+.skills {
+  grid-area: skills;
+  background-color: rgb(190, 52, 85);
+  color: whitesmoke;
+  text-align: left; 
+  padding-left: 20px;
+
+}
+
+.main {
+  grid-area: main;
+}
+
+
+.footer {
+  grid-area: footer;
+  padding: 20px;
+  text-align: center;
+  background-color: rgb(168, 168, 168);
+}
