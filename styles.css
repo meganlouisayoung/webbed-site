@@ -1,45 +1,50 @@
 body {
   margin: 0;
   display: grid;
-  grid-template-columns: 20px 1fr 20px;
+  grid-template-columns: 20px 1fr 2fr 20px;
   grid-template-rows: auto;
   grid-template-areas:
-    '.       title   .'
-    '.       header  .'
-    'divider divider divider'
-    '.       skills  .'
-    '.       main    .'
-    '.       footer  .';
+    '.   title  . .'
+    '.  title  header header'
+    'divider divider divider divider'
+    '. navbar navbar navbar'
+    '.  sidebar  main .'
+    'footer footer footer footer';
     font-family: Arial, Helvetica, sans-serif;
 }
 
 @media only screen and (min-width: 600px) {
   body {
-    grid-template-columns: 20px 300px 1fr 20px;
+    grid-template-columns: 20px 1fr 2fr 20px;
+    grid-template-rows: auto;
     grid-template-areas:
-      '.       title   header  .'
+      '.       title . .'
+      '. title header header'
       'divider divider divider divider'
-      '.       skills  main    .'
+      '. navbar navbar navbar'
+      '.       sidebar  main    .'
       'footer footer footer footer';
   }
 }
 
+img {
+  border-radius: 50%;
+border: 2px solid whitesmoke;
+}
+
 .title {
   grid-area: title;
-  background-color: rgb(190, 52, 85);
-  font-size: 28px;
+  background-color:var(--p1nk);
   color: whitesmoke;
-  height: 20px;
-  padding: 100px;
-  text-align: left;
+  padding: 20px;
   padding-left: 20px;
-
+  max-width: 1fr;
 }
 
 .header {
   grid-area: header;
   background-color: whitesmoke;
-  color:  rgb(190, 52, 85);
+  color: var(--p1nk);
   text-align: right;
   padding-top: 100px;
   padding: 10px;
@@ -48,30 +53,126 @@ body {
 
 .divider {
   grid-area: divider;
-  background-color: rgb(46,46,46);
+  background-color:var(--gr3y);
   color: whitesmoke;
   padding: 10px;
-  padding-right: 50px;
+  padding-right: 20px;
   text-align: right;
 }
 
-.skills {
-  grid-area: skills;
-  background-color: rgb(190, 52, 85);
+.sidebar {
+  grid-area: sidebar;
+  background-color:var(--p1nk);
   color: whitesmoke;
   text-align: left; 
-  padding-left: 20px;
+  padding: 20px;
+}
 
+.navbar{
+  grid-area: navbar;
+  overflow: hidden;
+  background-color: var(--p1nk);
+  padding-left: 10px;
+}
+
+/* Style the nav links */
+.navbar a {
+  float:left;
+  display: block;
+  color:whitesmoke;
+  text-align: left;
+  padding: 10px 10px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color:var(--gr3y);
+  color: var(--p1nk);
 }
 
 .main {
   grid-area: main;
+  padding: 10px;
+  
 }
 
 
 .footer {
   grid-area: footer;
+  color: var(--p1nk);
   padding: 20px;
   text-align: center;
   background-color: rgb(168, 168, 168);
 }
+
+/***************Colour and font reference chart***************
+
+h1 = white title header
+h2 = grey title header
+h3 = grey sub header
+h4 = pink italic title
+p.a = grey body text
+p.b = white body text
+p.c = white body caps 
+
+
+*/
+
+
+:root {
+  --p1nk : rgb(190,52,85);
+  --gr3y : rgb(46,46,46);
+}
+
+h1{
+  color: whitesmoke;
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: xx-large;
+}
+
+h2{
+  color: var(--gr3y);
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: x-large;
+}
+
+h3{
+  color: var(--gr3y);
+  text-align: justify;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+}
+
+h4{
+  color: var(--p1nk);
+  text-align: right;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  font-style: italic;
+}
+
+p.a {
+  color:var(--gr3y);
+  text-align: justify;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+}
+
+p.b {
+  color: white;
+  text-align: justify;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+}
+
+p.c {
+  color: white;
+  text-align: justify;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-variant: small-caps;
+}
+
